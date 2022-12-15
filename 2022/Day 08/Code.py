@@ -29,12 +29,12 @@ def checkLine(array):
     line = np.logical_or(array, rev)
     return line
 
-def part1():
+def part1(map):
     topdownmap = []
     i=0
-    while i < len(input):
+    while i < len(map):
         column = []
-        for line in input:
+        for line in map:
             column.append(line[i])
         i+=1
         topdownmap.append(checkLine(column))
@@ -42,7 +42,7 @@ def part1():
     topdownmap = np.array(topdownmap).transpose()
 
     leftrightmap = []
-    for line in input:
+    for line in map:
         leftrightmap.append(checkLine(line))
 
     leftrightmap = np.array(leftrightmap)
@@ -62,26 +62,26 @@ def getScore(array, x,y):
             break
     return score
 
-def part2():
+def part2(map):
     highestScore = 0
     transposedMap = []
     i=0
-    while i < len(input):
+    while i < len(map):
         column = []
-        for line in input:
+        for line in map:
             column.append(line[i])
         i+=1
         transposedMap.append((column))
 
 
     x=0
-    while x < len(input):
+    while x < len(map):
         y= 0
-        while y < len(input[0]):
+        while y < len(map[0]):
             oberhalb = list(reversed(transposedMap[y][:x]))
             unterhalb = transposedMap[y][x+1:]
-            vorher = list(reversed(input[x][:y]))
-            nacher = input[x][y+1:]
+            vorher = list(reversed(map[x][:y]))
+            nacher = map[x][y+1:]
             treeScore = getScore(oberhalb, x, y)*getScore(unterhalb, x, y)*getScore(vorher, x, y)*getScore(nacher, x, y)
             if treeScore>highestScore:
                 highestScore=treeScore
@@ -93,5 +93,5 @@ def part2():
    
 
 
-print("Part 1: " + part1())
-print("Part 2: " + part2())
+print("Part 1: " + part1(input))
+print("Part 2: " + part2(input))

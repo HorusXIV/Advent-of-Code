@@ -1,9 +1,9 @@
 from pathlib import Path
 path = Path(__file__).parent / "AoCinput.txt"
 with path.open() as f:
-    AoCinput = [x for x in f.read().split("\n")]
+    input = [x for x in f.read().split("\n")]
 
-def part1():
+def part1(AoCinput):
     larger = 0
     lastm = 1000000
     prelastm = 100000
@@ -16,7 +16,7 @@ def part1():
         lastm = measurement
     print(larger)
 
-def part2():
+def part2(AoCinput):
     i = 2
     larger = 0
     lasterg = 100000000000000000000000000000000000000000000000000000000
@@ -31,5 +31,5 @@ def part2():
     print(larger)
 
 
-part1()
-part2()
+part1(input)
+part2(input)

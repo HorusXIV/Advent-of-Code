@@ -31,7 +31,7 @@ public class Code {
                 closestFolder = folder;
             }
         }
-        System.out.println("Part2: " + closestFolder.calcSize());
+        System.out.println("Part 2: " + closestFolder.calcSize());
 
     }
 }
